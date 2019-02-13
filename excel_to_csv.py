@@ -13,8 +13,19 @@ def csv_from_excel():
 
     for rownum in range(sh.nrows):
         wr.writerow(sh.row_values(rownum))
+
+    print()
     your_csv_file.close()
 
 # runs the csv_from_excel function:
 csv_from_excel()
 
+def test_excel_file():
+    wb = openpyxl.load_workbook(filename)
+    sheet = wb.get_sheet_by_name("Fisher's Iris Data")
+    for rowOfCellObjects in sheet['A1':'E151']:
+        for cellObj in rowOfCellObjects:
+            print(cellObj.coordinate, cellObj.value)
+        print('---------')
+
+#test_excel_file() #run test to spam data into console
