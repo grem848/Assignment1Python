@@ -14,7 +14,7 @@ def csv_from_excel():
     for rownum in range(sh.nrows):
         wr.writerow(sh.row_values(rownum))
 
-    print()
+    print("excel to csv has been completed for " + filename)
     your_csv_file.close()
 
 # runs the csv_from_excel function:
