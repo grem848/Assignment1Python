@@ -3,16 +3,11 @@ import urllib.request as req
 from urllib.parse import urlparse
 import sys
 
-
-listen = sys.argv[1:]
-
-def download(urls, to=None):
+def download(urls):
     for url in urls:
-        v = urlparse(url)
-        stringarr = v.path.split("/")
-        to = stringarr[-1]
+        urlstring = urlparse(url)
+        urlsplit = urlstring.path.split("/")
+        to = urlsplit[-1]
         req.urlretrieve(url, to)
-        print("Downloading file to ./", to)
+        print("Downloading file to ./", to, sep="")
 
-
-download(listen)

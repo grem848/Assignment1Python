@@ -13,32 +13,34 @@ with open('befkbhalderstatkode.csv') as file_object:
     # removing first string (the headers)
     lines.pop(0)
 
-    # converting the list of strings to a list of stringarrays
-    listofstringarrays = []
+    # converting the list of strings to a list of intarrays
+    listofintarrays = []
     for line in lines:
         strarr = line.split(",")
         strarr[-1] = strarr[-1].rstrip()
         for idx in range(len(strarr)):
             strarr[idx] = int(strarr[idx])
-        listofstringarrays.append(strarr)
+        listofintarrays.append(strarr)
 
     # using loops to fill the STATISTICS dictionary
-    for item in listofstringarrays:
+    for item in listofintarrays:
         if item[0] in STATISTICS:
             continue
         else: STATISTICS[item[0]]={}
     
-    for item in listofstringarrays:
+    for item in listofintarrays:
         if item[1] in STATISTICS[item[0]]:
             continue
         else: STATISTICS[item[0]][item[1]]={}
     
-    for item in listofstringarrays:
+    for item in listofintarrays:
         if item[2] in STATISTICS[item[0]][item[1]]:
             continue
         else: STATISTICS[item[0]][item[1]][item[2]]={}
 
-    for item in listofstringarrays:
+    for item in listofintarrays:
         STATISTICS[item[0]][item[1]][item[2]][item[3]] = item[4]
 
     pprint.pprint(STATISTICS[2015][1])
+
+

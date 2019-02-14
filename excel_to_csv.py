@@ -8,14 +8,14 @@ filename = 'iris_data.xlsx'
 def csv_from_excel():
     wb = xlrd.open_workbook(filename)
     sh = wb.sheet_by_name("Fisher's Iris Data")
-    your_csv_file = open('output.csv', 'w')
-    wr = csv.writer(your_csv_file, delimiter='\t', quotechar='|')
+    csv_file = open('output.csv', 'w')
+    wr = csv.writer(csv_file, delimiter='\t', quotechar='|')
 
     for rownum in range(sh.nrows):
         wr.writerow(sh.row_values(rownum))
 
     print("excel to csv has been completed for " + filename)
-    your_csv_file.close()
+    csv_file.close()
 
 # runs the csv_from_excel function:
 csv_from_excel()

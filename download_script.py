@@ -1,16 +1,7 @@
-import os
-import urllib.request as req
-from urllib.parse import urlparse
+import webget
 import sys
 
 urls = sys.argv[1:]
+webget.download(urls)
 
-def download(urls):
-    for url in urls:
-        urlstring = urlparse(url)
-        urlsplit = urlstring.path.split("/")
-        to = urlsplit[-1]
-        req.urlretrieve(url, to)
-        print("Downloading file to ./", to, sep="")
 
-download(urls)
