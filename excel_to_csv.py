@@ -27,7 +27,7 @@ def csv_from_excel():
 # runs the csv_from_excel function:
 csv_from_excel()
 
-# run test_excel_file() #run test to spam data into console
+#run test to spam data into console
 def test_excel_file():
     wb = openpyxl.load_workbook(filename)
     sheet = wb.get_sheet_by_name("Fisher's Iris Data")
@@ -36,3 +36,4 @@ def test_excel_file():
             print(cellObj.coordinate, cellObj.value)
         print('---------')
 
+# run test_excel_file() 
